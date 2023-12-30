@@ -99,3 +99,34 @@ GetCost策略被调⽤以计算折叠边的成本。该策略使⽤放置来计�
 
 ![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/3a4c10eb-5339-43b4-9618-127dcf6a32ec)
 
+## Part Three 如何封装Houdini HDK
+
+1. 创建dso⽂件夹，前往C:\Users\你的电脑名\Documents\houdini19.0创建⼀个dso⽂件夹
+![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/7f0dfb07-dc27-4762-87fd-b4445d0c6413)
+
+2. 设置houdini.env，在⾥⾯写上HOUDINI_DSO_PATH = $HOME\houdini19.0\dso;& 这句话是保证
+你⽣成dll⾃动分配到dso⽂件夹⾥⾯
+
+![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/f9a16030-897f-47ce-863a-287991bda758)
+
+3. 书写CMakeLists⽂件内容，官⽹有样例 HDK: Compiling HDK Code (sidefx.com)
+![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/a3407cf2-dbeb-452e-a7dd-e2963f6f4806)
+
+4. 调⽤CMakeLists⽂件，在houdini中找到Command Line Tools
+![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/577ebc1c-ec7f-4ecd-a8c2-30b58392e249)
+
+5. 然后选择NaniteSimpilification右键，重新⽣成
+![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/09d6e035-c1a2-4e00-b3cc-38148905e474)
+
+6. 下⽅显⽰这些，即代表成功
+![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/0ace8999-4d5b-4c04-9532-775711282444)
+
+7. dso⽂件夹可以看到这些⽂件
+![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/ac1a6df4-ddad-4071-b35a-cda7ca10b2c6)
+
+8. 打开Houdini，创建⼀个Geometry节点，进⼊节点内部，按tab键，找到Coustom就可以看到刚才
+⽣成的节点。
+![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/f6b8d167-3008-4fc9-acc5-b85d71341f6f)
+
+
+
