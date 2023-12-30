@@ -25,8 +25,8 @@ target_include_directories( ${library_name} PRIVATE
 ${ThirdPartIncludePath}
 )
 #add ThirdPartylib
-list( APPEND ThirdPartLibPath "D:/JainiceResearch/vcpkg/installed/x64-windows")
-list( APPEND ThirdPartLibPath "D:/JainiceResearch/vcpkg/installed/x64-windows")
+list( APPEND ThirdPartLibPath "D:/JainiceResearch/vcpkg/installed/x64-windows/gmp/lib/libmpfr-4.lib")
+list( APPEND ThirdPartLibPath "D:/JainiceResearch/vcpkg/installed/x64-windows/gmp/lib/libgmp-10.lib")
 target_link_libraries( ${library_name} ${ThirdPartLibPath})
 # Link against the Houdini libraries, and add required include directories and
 # compile definitions.
