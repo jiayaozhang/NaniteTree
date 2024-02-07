@@ -1,9 +1,7 @@
 # NaniteTreePipeline
 
 
-![GitHub Repo stars](https://img.shields.io/github/stars/jiayaozhang/NaniteTree?style=social)
-
-[![Generic badge](https://img.shields.io/badge/🌲-Website-green)](h[ttps://www.modelscope.cn/profile/Jannie](https://nanitetree.github.io/))
+![GitHub Repo stars](https://img.shields.io/github/stars/jiayaozhang/NaniteTree?style=social)[![Generic badge](https://img.shields.io/badge/🌲-Website-green)](h[ttps://www.modelscope.cn/profile/Jannie](https://nanitetree.github.io/))
 
 
 
