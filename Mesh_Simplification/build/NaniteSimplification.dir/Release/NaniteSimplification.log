@@ -1,0 +1,12 @@
+﻿  Generating Mesh_Simplification.proto.h
+  Building Custom Rule D:/NaniteTree/CMakeLists.txt
+  Mesh_Simplification.cpp
+D:\NaniteTree\include\Eigen\src/Core/arch/Default/Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\NaniteTree\include\Eigen\src/Core/arch/Default/BFloat16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\NaniteTree\include\Eigen\src/Core/arch/Default/GenericPacketMathFunctions.h(676,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\NaniteTree\include\CGAL/boost/graph/Euler_operations.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\NaniteTree\include\CGAL/boost/graph/Euler_operations.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\NaniteTree\Mesh_Simplification.cpp(197,53): error C2440: “初始化”: 无法从“CGAL::SM_Vertex_index”转换为“vertex_descriptor &”
+D:\NaniteTree\Mesh_Simplification.cpp(197,53): message : 非常量引用只能绑定到左值
+D:\NaniteTree\Mesh_Simplification.cpp(208,48): error C2440: “初始化”: 无法从“CGAL::SM_Face_index”转换为“face_descriptor &”
+D:\NaniteTree\Mesh_Simplification.cpp(208,48): message : 非常量引用只能绑定到左值

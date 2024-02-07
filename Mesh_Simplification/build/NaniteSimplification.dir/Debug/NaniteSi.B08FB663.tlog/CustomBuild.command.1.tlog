@@ -1,0 +1,24 @@
+^D:\NANITETREE\BUILD\CMAKEFILES\FAE96C138CF0B461F63D4F71EBC5FFB5\MESH_SIMPLIFICATION.PROTO.H.RULE
+setlocal
+cd D:\NaniteTree
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Side Effects Software\Houdini 18.5.696\python37\python3.7" "C:/Program Files/Side Effects Software/Houdini 18.5.696/houdini/python3.7libs/generate_proto.py" Mesh_Simplification.cpp D:/NaniteTree/build/Mesh_Simplification.proto.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\NANITETREE\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/NaniteTree -BD:/NaniteTree/build --check-stamp-file D:/NaniteTree/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
