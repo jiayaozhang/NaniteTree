@@ -58,36 +58,80 @@ Through our tool, artists can quickly convert original billboard models to leaf 
     如何在你本地版本的Houdini使用NaniteTree的减面节点
 
 1. 创建dso⽂件夹，前往C:\Users\你的电脑名\Documents\houdini19.0创建⼀个dso⽂件夹
-![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/7f0dfb07-dc27-4762-87fd-b4445d0c6413)
 
-2. 设置houdini.env，在⾥⾯写上HOUDINI_DSO_PATH = $HOME\houdini19.0\dso;& 这句话是保证
-你⽣成dll⾃动分配到dso⽂件夹⾥⾯
 
-![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/f9a16030-897f-47ce-863a-287991bda758)
+2. 设置houdini.env，在⾥⾯写上
+
+```shell
+HOUDINI_DSO_PATH = $HOME\houdini19.0\dso;& 
+```
+
+
+这句话是保证你⽣成dll⾃动分配到dso⽂件夹⾥⾯
+
 
 3. 书写CMakeLists⽂件内容，官⽹有样例 HDK: Compiling HDK Code (sidefx.com)
 
-![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/a3407cf2-dbeb-452e-a7dd-e2963f6f4806)
+```cpp
+cmake_minimum_required( VERSION 3.6 )
+project( NaniteSimplification )
 
-4. 调⽤CMakeLists⽂件，在houdini中找到Command Line Tools
+list( APPEND CMAKE_PREFIX_PATH "$ENV{HFS}/toolkit/cmake" )
+# Locate Houdini's libraries and header files.
+# Registers an imported library target named 'Houdini'.
+find_package( Houdini REQUIRED )
+find_package(Eigen3 3.1.0 QUIET) #(3.1.0 or greater)
 
-![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/577ebc1c-ec7f-4ecd-a8c2-30b58392e249)
+set( library_name NaniteSimplification )
+# Code generation for the embedded DS file in Mesh_Simplification.cpp.
+houdini_generate_proto_headers( FILES Mesh_Simplification.cpp )
+# Add a library and its source files.
+add_library( ${library_name} SHARED
+Mesh_Simplification.cpp
+Mesh_Simplification.h
+)
+#add ThirdPartyInclude
+list( APPEND ThirdPartIncludePath "include")
+list( APPEND ThirdPartIncludePath "$ENV{BOOST_INCLUDEDIR}")
+list( APPEND ThirdPartIncludePath "$ENV{CGAL_DIR}/include")
+list( APPEND ThirdPartIncludePath "$ENV{CGAL_DIR}/auxiliary/gmp/include")
+# list( APPEND ThirdPartIncludePath "D:/JainiceResearch/vcpkg/installed/x64-window")
+target_include_directories( ${library_name} PRIVATE
+${ThirdPartIncludePath}
+)
+#add ThirdPartylib
+target_link_libraries( ${library_name} ${ThirdPartLibPath})
+target_link_libraries( ${library_name} Houdini )
+# Include ${CMAKE_CURRENT_BINARY_DIR} for the generated header.
+target_include_directories( ${library_name} PRIVATE
+${CMAKE_CURRENT_BINARY_DIR}
+)
+# Sets several common target properties, such as the library's output directory.
+houdini_configure_target( ${library_name} )
+```
 
-5. 然后选择NaniteSimpilification右键，重新⽣成
+4. Installing CGAL with Vcpkg
+  `https://doc.cgal.org/latest/Manual/windows.html`
 
-![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/09d6e035-c1a2-4e00-b3cc-38148905e474)
-
-6. 下⽅显⽰这些，即代表成功
-![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/0ace8999-4d5b-4c04-9532-775711282444)
-
-7. dso⽂件夹可以看到这些⽂件
-![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/ac1a6df4-ddad-4071-b35a-cda7ca10b2c6)
-
-8. 打开Houdini，创建⼀个Geometry节点，进⼊节点内部，按tab键，找到Coustom就可以看到刚才
-⽣成的节点。
-![image](https://github.com/jiayaozhang/NaniteTree_Imposter2Mesh_Simplification/assets/38579506/f6b8d167-3008-4fc9-acc5-b85d71341f6f)
+```shell
+./vcpkg.exe install cgal:x64-windows
+./vcpkg.exe install boost:x64-windows
+./vcpkg.exe install eigen:x64-windows
+./vcpkg.exe integrate install
+```
 
 
+5. 调⽤CMakeLists⽂件，在houdini中找到Command Line Tools
+
+```shell
+mkdir build
+cd build
+cmake -DCMAKE_TOOLCHAIN_FILE=VCPKG_ROOT\scripts\buildsystems\vcpkg.cmake -DCMAKE_PREFIX_PATH="HOUDINI_ROOT\toolkit\cmake" ..
+cmake --build . --clean-first
+```
+6. 打开生成sln，并点击生成,成功以后就能看到dso⽂件夹里面的⽂件
+
+7. 打开Houdini，创建⼀个Geometry节点，进⼊节点内部，按tab键，找到Coustom就可以看到刚才⽣成的节点。
 
 ## Part Ⅱ Tech details 技术细节  <a name="TechDetails"></a>
  @JiayaoZhang
