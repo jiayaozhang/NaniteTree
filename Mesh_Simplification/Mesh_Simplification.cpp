@@ -75,7 +75,7 @@ static const char* theDsFile = R"THEDSFILE(
         label   "Simplifications"
         type    integer
         default { "0" }
-        range   { 0! 1 }
+        range   { 0! 100 }
     }
 }
 )THEDSFILE";
@@ -172,8 +172,8 @@ void Mesh_SimplificationVerb::cook(const SOP_NodeVerb::CookParms& cookparms) con
 		<< num_faces(surface_mesh) << " nf " << std::endl;
 
 
-	int32 k = (int32)sopparms.getDivs();
-	std::cout << "Collapsing edges of mesh and aiming for " << 100 * k << "% of the input edges..." << std::endl;
+	double k = (int32)sopparms.getDivs()*0.01;
+	//std::cout << "Collapsing edges of mesh and aiming for " << k << "% of the input edges..." << std::endl;
 	const std::string policy = "cp";
 	if (policy == "cp")
 		collapse_gh<Classic_plane>(surface_mesh, k);
@@ -184,9 +184,6 @@ void Mesh_SimplificationVerb::cook(const SOP_NodeVerb::CookParms& cookparms) con
 	else
 		collapse_gh<Prob_tri>(surface_mesh, k);
 
-	//int r = SMS::edge_collapse(surface_mesh, stop,
-	//	CGAL::parameters::get_cost(gh_cost)
-	//	.get_placement(placement));
 
 	std::cout << surface_mesh.number_of_edges() << " final edges.\n";
 
@@ -239,11 +236,11 @@ public:
 
 	virtual bool getOpHelpURL(UT_String& url)
 	{
-		url.harden("https://space.bilibili.com/73693594?spm_id_from=333.1007.0.0"); return true;
+		url.harden(""); return true;
 	}
 };
-//
-//void newSopOperator(OP_OperatorTable* table)
-//{
-//	table->addOperator(new Mesh_SimplificationOperator());
-//}
+
+void newSopOperator(OP_OperatorTable* table)
+{
+	table->addOperator(new Mesh_SimplificationOperator());
+}
