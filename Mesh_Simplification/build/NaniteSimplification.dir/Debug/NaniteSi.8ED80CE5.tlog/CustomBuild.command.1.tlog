@@ -1,0 +1,24 @@
+^C:\HIKOENGINE\PORTFOLIO\NANITETREE\MESH_SIMPLIFICATION\BUILD\CMAKEFILES\17B74E3CDB7970D8B0A9054671697CC8\MESH_SIMPLIFICATION.PROTO.H.RULE
+setlocal
+cd C:\HikoEngine\Portfolio\NaniteTree\Mesh_Simplification
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Side Effects Software\Houdini 19.0.383\python37\python3.7" "C:/Program Files/Side Effects Software/Houdini 19.0.383/houdini/python3.7libs/generate_proto.py" Mesh_Simplification.cpp C:/HikoEngine/Portfolio/NaniteTree/Mesh_Simplification/build/Mesh_Simplification.proto.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\HIKOENGINE\PORTFOLIO\NANITETREE\MESH_SIMPLIFICATION\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/HikoEngine/Portfolio/NaniteTree/Mesh_Simplification -BC:/HikoEngine/Portfolio/NaniteTree/Mesh_Simplification/build --check-stamp-file C:/HikoEngine/Portfolio/NaniteTree/Mesh_Simplification/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

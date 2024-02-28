@@ -1,0 +1,10 @@
+^C:\HIKOENGINE\PORTFOLIO\NANITETREE\MESH_SIMPLIFICATION\BUILD\CMAKEFILES\42098691657A0BF8ABEC1F0AEB206BA8\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/HikoEngine/Portfolio/NaniteTree/Mesh_Simplification -BC:/HikoEngine/Portfolio/NaniteTree/Mesh_Simplification/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/HikoEngine/Portfolio/NaniteTree/Mesh_Simplification/build/NaniteSimplification.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

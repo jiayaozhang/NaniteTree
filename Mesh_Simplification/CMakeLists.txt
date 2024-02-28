@@ -20,13 +20,13 @@ Mesh_Simplification.h
 list( APPEND ThirdPartIncludePath "$ENV{BOOST_INCLUDEDIR}")
 list( APPEND ThirdPartIncludePath "$ENV{CGAL_DIR}/include")
 list( APPEND ThirdPartIncludePath "$ENV{CGAL_DIR}/auxiliary/gmp/include")
-list( APPEND ThirdPartIncludePath "D:/JainiceResearch/vcpkg/installed/x64-window")
+list( APPEND ThirdPartIncludePath "C:/src/vcpkg/installed/x64-windows")
 target_include_directories( ${library_name} PRIVATE
 ${ThirdPartIncludePath}
 )
 #add ThirdPartylib
-list( APPEND ThirdPartLibPath "D:/JainiceResearch/vcpkg/installed/x64-windows/gmp/lib/libmpfr-4.lib")
-list( APPEND ThirdPartLibPath "D:/JainiceResearch/vcpkg/installed/x64-windows/gmp/lib/libgmp-10.lib")
+#list( APPEND ThirdPartLibPath "D:/JainiceResearch/vcpkg/installed/x64-windows/gmp/lib/libmpfr-4.lib")
+#list( APPEND ThirdPartLibPath "D:/JainiceResearch/vcpkg/installed/x64-windows/gmp/lib/libgmp-10.lib")
 target_link_libraries( ${library_name} ${ThirdPartLibPath})
 # Link against the Houdini libraries, and add required include directories and
 # compile definitions.
