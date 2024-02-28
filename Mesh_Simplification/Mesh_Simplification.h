@@ -28,11 +28,11 @@ protected:
 
     virtual ~Mesh_Simplification() {}
 
-    /// Since this SOP implements a verb, cookMySop just delegates to the verb.
-    //virtual OP_ERROR cookMySop(OP_Context &context) override
-    //{
+    // Since this SOP implements a verb, cookMySop just delegates to the verb.
+    // virtual OP_ERROR cookMySop(OP_Context &context) override
+    // {
     //    return cookMyselfAsVerb(context);
-    //}
+    // }
     virtual OP_ERROR cookMySop(OP_Context& context) override;
 };
 #endif __Mesh_Simplification__
