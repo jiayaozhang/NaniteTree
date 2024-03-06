@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\HikoEngine\Portfolio\NaniteTree\Mesh_Simplification\Mesh_Simplification.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\HikoEngine\Portfolio\NaniteTree\Mesh_Simplification\Mesh_Simplification.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\HikoEngine\Portfolio\NaniteTree\Mesh_Simplification\build\CMakeFiles\17b74e3cdb7970d8b0a9054671697cc8\Mesh_Simplification.proto.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\HikoEngine\Portfolio\NaniteTree\Mesh_Simplification\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{F3948ED1-EC64-3400-BE36-92ECD3928236}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{170346F6-59D2-3E9D-B6ED-686440B250CA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{946E845A-1D25-33EE-8391-53F935AD89AF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
