@@ -53,11 +53,44 @@ Through our tool, artists can quickly convert original billboard models to leaf 
 
 ### Use in Houdini 在Houdini中使用 <a name="Houdini"></a>
 
+#### Open HDA file
+   1. Clone NaniteTree
+
+    git clone https://github.com/jiayaozhang/NaniteTree.git
+   2. find [**foliagenanitetool.hda**] in ..\NaniteTree\NaniteFoliageTool\
+   3. Double-Click to Open HDA
+   4. You'll open an **untitled.hip** within a hda node named [foliagenanitetool]
+#### HDA Settings
+##### 1. Set Model File
+![image](https://nanitetree.github.io/static/images/3.png)
+
+##### 2.Set Leaves Texture/MaterialName
+![image](./Webpage/static/images/intro1.png)
+
+
+**Clean** ----> **Setup** ----> **SaveToDisk** 
+
+Outputs will be shown in Houdini Console Log
+and the panel [Log]
+
+![image](./Webpage/static/images/intro2.png)
+
+### Batch processing based on the same configuration rule
+
+    See Houdini PDG Graph tutorial 
+    https://www.sidefx.com/products/houdini/pdg/
+#### You Can Use **Run_TopNaniteTool.hip**
+
+find [**Run_TopNaniteTool.hip**] in ..\NaniteTree\NaniteFoliageTool\Hips
+
+![image](./Webpage/static/images/intro3.png)
+![image](./Webpage/static/images/intro4.png)
+
 ### How to Use NaniteTree's node in Houdini of your version
 
 Please check [Detailed Tutorial](./Mesh_Simplification/README.md)
 
 ### Use in UnrealEngine 在虚幻引擎中使用 <a name="Unreal"></a>
 
-
+TODO : as Unreal Content Plugin published on Epic Store
 
