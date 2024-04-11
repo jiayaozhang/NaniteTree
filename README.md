@@ -3,6 +3,7 @@
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/jiayaozhang/NaniteTree?style=social)[![Generic badge](https://img.shields.io/badge/🌲-Website-green)](https://nanitetree.github.io/))
 
+![image](/Webpage/Intro.png)
 
 
 ## Table of contents 导航
