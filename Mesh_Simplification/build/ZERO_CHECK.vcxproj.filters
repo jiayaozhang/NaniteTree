@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\HikoEngine\Portfolio\NaniteTree\Mesh_Simplification\build\CMakeFiles\42098691657a0bf8abec1f0aeb206ba8\generate.stamp.rule">
+    <CustomBuild Include="D:\Janice_Research\Sep\NaniteTree\Mesh_Simplification\build\CMakeFiles\32ec7a567f20766364db02edfa1eb0db\generate.stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{F3948ED1-EC64-3400-BE36-92ECD3928236}</UniqueIdentifier>
+      <UniqueIdentifier>{773FA5DD-324B-3CE4-BD57-F05D2779CC95}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

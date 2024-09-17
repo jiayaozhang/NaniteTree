@@ -91,7 +91,23 @@ find [**Run_TopNaniteTool.hip**] in ..\NaniteTree\NaniteFoliageTool\Hips
 
 Please check [Detailed Tutorial](./Mesh_Simplification/README.md)
 
-### Use in UnrealEngine 在虚幻引擎中使用 <a name="Unreal"></a>
+## Build your own hda tool
 
-TODO : as Unreal Content Plugin published on Epic Store
+If you want to modify or customize related functions based on this tool, you can refer to the following steps
 
+Here you can modify the code mainly to control the buttons
+
+<video src="./Webpage/static/videos/HowToUseNanateTreePipeLineTool.mp4"></video>
+
+In the previous version, the output consistently produced incorrect leaves. This was due to the [END_LOOP_Leaf] node toggling [single pass], which caused the loop to step in a single plane and generate only one leaf. As a result, all subsequent processes yielded incorrect outcomes.
+
+![image.png](./Webpage/static/images/singlepass.png)
+
+When using, you must first determine the following information of the input model [Model name] (name that affects the output) [Material name of the trunk] [Material name of the leaves] (This material name is the material slot name)
+
+
+![image.png](./Webpage/static/images/DIYTree.png)
+
+You can modify the code here, mainly to control the buttons
+
+![image.png](./Webpage/static/images/Modify.png)
